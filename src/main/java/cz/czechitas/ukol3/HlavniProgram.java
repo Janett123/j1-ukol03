@@ -37,6 +37,7 @@ public class HlavniProgram {
 
         System.out.println(mujPocitac.toString());
 
+
         mujPocitac.vytvorSouborOVelikosti(400_000_000_000L);
         System.out.println(mujDisk.getVyuziteMisto());
 

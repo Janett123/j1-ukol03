@@ -73,6 +73,7 @@ public class Pocitac {
     }
 
     public void vytvorSouborOVelikosti(long velikost) {
+        jeZapnuty = true;
         pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
         //System.out.println(pevnyDisk.getVyuziteMisto());
 
@@ -83,6 +84,7 @@ public class Pocitac {
     }
 
     public void vymazSouboryOVelikosti(long velikost) {
+        jeZapnuty = true;
         pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
 
         if(pevnyDisk.getVyuziteMisto()<0) {
