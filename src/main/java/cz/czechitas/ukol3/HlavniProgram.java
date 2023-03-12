@@ -37,7 +37,6 @@ public class HlavniProgram {
 
         System.out.println(mujPocitac.toString());
 
-
         mujPocitac.vytvorSouborOVelikosti(400_000_000_000L);
         System.out.println(mujDisk.getVyuziteMisto());
 
@@ -46,11 +45,6 @@ public class HlavniProgram {
         System.out.println(mujDisk.getVyuziteMisto());
 
 
-
-        //TODO tady bude váš kód - vytvoření instance třídy Pocitac, zapnutí, vpynutí, výpis hodnot.
         System.out.println("Program spuštěn.");
     }
-
-
-
 }

@@ -1,7 +1,5 @@
 package cz.czechitas.ukol3.model;
 
-import java.util.Objects;
-
 public class Pocitac {
 
     private boolean jeZapnuty;
@@ -12,6 +10,49 @@ public class Pocitac {
 
     private Disk pevnyDisk;
 
+    public void zapniSe() {
+
+        if (ram == null || cpu == null || pevnyDisk == null) {
+            System.err.println("chybí součást PC");
+            jeZapnuty = false;
+            return;
+        }
+
+        if (jeZapnuty == true) {
+            System.err.println("Počítač je už zapnutý!");
+            return;
+        }
+        jeZapnuty = true;
+
+    }
+
+    public void vypniSe() {
+        jeZapnuty = false;
+    }
+
+    public boolean jeZapnuty() {
+        return jeZapnuty;
+    }
+
+    public void vytvorSouborOVelikosti(long velikost) {
+        if (jeZapnuty == true){
+            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
+            if (pevnyDisk.getVyuziteMisto() > pevnyDisk.getKapacita()) {
+                System.err.println("Využité místo překračuje kapacitu!");
+                pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto()- velikost);
+            }
+        }
+    }
+
+    public void vymazSouboryOVelikosti(long velikost) {
+        if (jeZapnuty == true){
+            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
+            if(pevnyDisk.getVyuziteMisto()<0) {
+                System.err.println("Využité místo nesmí být záporné!");
+                pevnyDisk.setVyuziteMisto(0);
+            }
+        }
+    }
 
     public Procesor getCpu() {
         return cpu;
@@ -46,53 +87,6 @@ public class Pocitac {
                 ", pevnyDisk=" + pevnyDisk +
                 '}';
     }
-
-
-    public void zapniSe() {
-
-        if (ram == null || cpu == null || pevnyDisk == null) {
-            System.err.println("chybí součást PC");
-            jeZapnuty = false;
-            return;
-        }
-
-        if (jeZapnuty == true) {
-            System.err.println("Počítač je už zapnutý!");
-            return;
-        }
-        jeZapnuty = true;
-
-    }
-
-    public void vypniSe() {
-        jeZapnuty = false;
-    }
-
-    public boolean jeZapnuty() {
-        return jeZapnuty;
-    }
-
-    public void vytvorSouborOVelikosti(long velikost) {
-        jeZapnuty = true;
-        pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
-        //System.out.println(pevnyDisk.getVyuziteMisto());
-
-        if (pevnyDisk.getVyuziteMisto() > pevnyDisk.getKapacita()) {
-            System.err.println("Využité místo překračuje kapacitu!");
-            pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto()- velikost);
-        }
-    }
-
-    public void vymazSouboryOVelikosti(long velikost) {
-        jeZapnuty = true;
-        pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
-
-        if(pevnyDisk.getVyuziteMisto()<0) {
-            System.err.println("Využité místo nesmí být záporné!");
-            pevnyDisk.setVyuziteMisto(0);
-        }
-    }
-
 }
 
 
