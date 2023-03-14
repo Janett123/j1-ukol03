@@ -31,11 +31,11 @@ public class HlavniProgram {
         mujPocitac.zapniSe();
         mujPocitac.zapniSe();
 
-        System.out.println(mujPocitac.toString());
+        System.out.println(mujPocitac);
 
         mujPocitac.vypniSe();
 
-        System.out.println(mujPocitac.toString());
+        System.out.println(mujPocitac);
 
         mujPocitac.vytvorSouborOVelikosti(400_000_000_000L);
         System.out.println(mujDisk.getVyuziteMisto());
